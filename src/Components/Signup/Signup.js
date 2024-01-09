@@ -1,7 +1,7 @@
 import React, { useState,useContext } from 'react'
 
 import Logo from '../../olx-logo.png';
-import {FirebaseContext} from '../../store/firebaseContext'
+import {FirebaseContext} from '../../store/Context'
 import {useHistory} from 'react-router-dom'
 import './Signup.css';
 
@@ -19,7 +19,7 @@ export default function Signup() {
           firebase.firestore().collection('users').add({
             id:result.user.uid,
             username:username,
-            phone:phone
+            phone:phoneNumber
           }).then(()=>{
               history.push("/login")
           })
